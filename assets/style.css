@@ -1080,46 +1080,82 @@ textarea.form-control{
     grid-template-columns:repeat(2,1fr);
 }
 
-   /* MOBILE HEADER */
-
-.mobile-actions{
-display:none;
 }
 
-.hamburger{
-display:none;
-background:none;
-border:none;
-font-size:24px;
-cursor:pointer;
-}
-
-.mobile-invest-btn-top{
-background:#d4af37;
-color:#fff;
-padding:8px 14px;
-border-radius:25px;
-text-decoration:none;
-font-size:14px;
-font-weight:600;
-}
+/* ==========================================
+   MOBILE
+========================================== */
 
 @media(max-width:768px){
 
-.mobile-actions{
-display:flex;
-align-items:center;
-gap:10px;
+.section{
+    padding:70px 0;
 }
 
-.hamburger{
-display:block;
+.hero-content h1{
+    font-size:2.3rem;
 }
 
-.desktop-btn{
-display:none;
+.section-title h2{
+    font-size:2rem;
 }
 
+.nav-links{
+    display:none;
+}
+
+.menu-toggle{
+    display:block;
+}
+
+.metrics-grid,
+.features-grid,
+.services-grid,
+.process-grid,
+.gallery-grid,
+.office-grid{
+    grid-template-columns:1fr;
+}
+
+.footer-grid{
+    grid-template-columns:1fr;
+}
+
+.hero-buttons{
+    flex-direction:column;
+}
+
+.btn{
+    width:100%;
+}
+
+.testimonial-card{
+    min-width:100%;
+}
+
+.hero-card{
+    position:static;
+    margin-top:20px;
+}
+
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media(max-width:480px){
+
+.hero-content h1{
+    font-size:2rem;
+}
+
+.metric-card h3{
+    font-size:1.8rem;
+}
+
+.section-title h2{
+    font-size:1.8rem;
 }
 
 }
