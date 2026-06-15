@@ -13,7 +13,7 @@ Financial Calculators | Kadrolli Financial Services
 </title>
 
 <meta name="description"
-content="Interactive SIP Calculator, Lumpsum Calculator, Goal Calculator and Retirement Calculator by Kadrolli Financial Services.">
+content="SIP, Lumpsum, SWP, PPF, EPF, SSY and Mutual Fund calculators.">
 
 <link rel="icon"
 href="assets/logo.png">
@@ -23,6 +23,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 <link rel="stylesheet"
 href="assets/style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 
@@ -36,29 +38,36 @@ href="assets/style.css">
 
 <nav class="navbar">
 
-<a href="index.html" class="logo">
+<a href="index.html"
+class="logo">
 
-<img src="assets/logo.png" alt="Logo">
+<img src="assets/logo.png"
+alt="Logo">
 
 <div class="logo-text">
 
-<h3>Kadrolli Financial Services</h3>
+<h3>
+Kadrolli Financial Services
+</h3>
 
-<span>ARN 290531</span>
+<span>
+AMFI Registered Mutual Fund Distributor
+</span>
 
 </div>
 
 </a>
 
-<ul class="nav-links">
+<ul class="nav-links"
+id="navLinks">
 
 <li><a href="index.html">Home</a></li>
 <li><a href="about.html">About</a></li>
 <li><a href="services.html">Services</a></li>
-<li><a href="achievements.html">Achievements</a></li>
 <li><a href="reviews.html">Reviews</a></li>
 <li><a href="calculators.html">Calculators</a></li>
 <li><a href="gallery.html">Gallery</a></li>
+<li><a href="travel-booking.html">Travel</a></li>
 <li><a href="contact.html">Contact</a></li>
 
 </ul>
@@ -83,29 +92,123 @@ Start Investing
 
 <div class="container">
 
-<div class="hero-content"
-style="text-align:center;max-width:900px;margin:auto;">
+<div class="hero-content text-center">
 
 <div class="hero-badges">
 
-<span>Interactive Tools</span>
 <span>Financial Planning</span>
-<span>Investment Growth</span>
+<span>SIP Planning</span>
+<span>Wealth Creation</span>
 
 </div>
 
 <h1>
 
-Financial Planning Calculators
+Financial Calculators
 
 </h1>
 
 <p>
 
-Use our investment calculators to estimate future wealth,
-retirement corpus and goal-based investment requirements.
+Plan your investments using industry-standard calculators inspired by leading investment platforms.
 
 </p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CALCULATOR CARDS -->
+
+<section class="section">
+
+<div class="container">
+
+<div class="services-grid">
+
+<div class="service-card calc-card active-calc"
+data-target="sip">
+
+<h3>SIP</h3>
+
+<p>
+Calculate wealth creation through monthly investments.
+</p>
+
+</div>
+
+<div class="service-card calc-card"
+data-target="lumpsum">
+
+<h3>Lumpsum</h3>
+
+<p>
+Calculate returns on one-time investments.
+</p>
+
+</div>
+
+<div class="service-card calc-card">
+
+<h3>SWP</h3>
+
+<p>
+Systematic Withdrawal Plan calculations.
+</p>
+
+</div>
+
+<div class="service-card calc-card">
+
+<h3>MF</h3>
+
+<p>
+Mutual Fund return calculator.
+</p>
+
+</div>
+
+<div class="service-card calc-card">
+
+<h3>SSY</h3>
+
+<p>
+Sukanya Samriddhi Yojana calculator.
+</p>
+
+</div>
+
+<div class="service-card calc-card">
+
+<h3>PPF</h3>
+
+<p>
+Public Provident Fund calculator.
+</p>
+
+</div>
+
+<div class="service-card calc-card">
+
+<h3>EPF</h3>
+
+<p>
+Employee Provident Fund calculator.
+</p>
+
+</div>
+
+<div class="service-card calc-card">
+
+<h3>FD</h3>
+
+<p>
+Fixed Deposit return calculator.
+</p>
+
+</div>
 
 </div>
 
@@ -115,71 +218,186 @@ retirement corpus and goal-based investment requirements.
 
 <!-- SIP CALCULATOR -->
 
-<section class="section">
+<section class="section process-section">
 
 <div class="container">
 
-<div class="section-title">
+<div class="calculator-wrapper">
 
-<span>SIP Calculator</span>
+<div class="calculator-left">
 
-<h2>
+<div class="calculator-tabs">
 
-Calculate Future SIP Value
+<button class="tab-btn active">
 
-</h2>
-
-</div>
-
-<div class="contact-card">
-
-<div class="form-group">
-
-<label>Monthly Investment (₹)</label>
-
-<input type="number"
-id="sipAmount"
-class="form-control"
-placeholder="5000">
-
-</div>
-
-<div class="form-group">
-
-<label>Expected Return (%)</label>
-
-<input type="number"
-id="sipReturn"
-class="form-control"
-placeholder="12">
-
-</div>
-
-<div class="form-group">
-
-<label>Investment Period (Years)</label>
-
-<input type="number"
-id="sipYears"
-class="form-control"
-placeholder="15">
-
-</div>
-
-<button class="btn btn-primary"
-onclick="calculateSIPResult()">
-
-Calculate SIP
+SIP
 
 </button>
 
-<br><br>
+<button class="tab-btn">
 
-<h3 id="sipResult">
+Lumpsum
 
-Future Value: ₹0
+</button>
 
-</h3>
+</div>
+
+<!-- Monthly Investment -->
+
+<div class="slider-group">
+
+<label>
+
+Monthly Investment
+
+</label>
+
+<div class="slider-value">
+
+₹ <span id="sipAmountText">
+
+25000
+
+</span>
+
+</div>
+
+<input type="range"
+min="500"
+max="500000"
+step="500"
+value="25000"
+id="sipAmount">
+
+</div>
+
+<!-- Return -->
+
+<div class="slider-group">
+
+<label>
+
+Expected Return Rate (p.a)
+
+</label>
+
+<div class="slider-value">
+
+<span id="sipRateText">
+
+12
+
+</span>%
+
+</div>
+
+<input type="range"
+min="1"
+max="30"
+step="1"
+value="12"
+id="sipRate">
+
+</div>
+
+<!-- Time -->
+
+<div class="slider-group">
+
+<label>
+
+Time Period
+
+</label>
+
+<div class="slider-value">
+
+<span id="sipYearsText">
+
+10
+
+</span> Yr
+
+</div>
+
+<input type="range"
+min="1"
+max="40"
+step="1"
+value="10"
+id="sipYears">
+
+</div>
+
+</div>
+
+<div class="calculator-right">
+
+<canvas id="sipChart"></canvas>
+
+<div class="result-box">
+
+<div class="result-row">
+
+<span>
+
+Invested Amount
+
+</span>
+
+<strong id="investedAmount">
+
+₹30,00,000
+
+</strong>
+
+</div>
+
+<div class="result-row">
+
+<span>
+
+Est. Returns
+
+</span>
+
+<strong id="estimatedReturns">
+
+₹28,08,117
+
+</strong>
+
+</div>
+
+<div class="result-row">
+
+<span>
+
+Total Value
+
+</span>
+
+<strong id="totalValue">
+
+₹58,08,117
+
+</strong>
+
+</div>
+
+</div>
+
+<br>
+
+<a href="https://connectplus.kotaksecurities.com/app/refer/BZ1FZG"
+target="_blank"
+class="btn btn-gold">
+
+Start Investing
+
+</a>
+
+</div>
 
 </div>
 
@@ -187,7 +405,123 @@ Future Value: ₹0
 
 </section>
 
-<!-- LUMPSUM CALCULATOR -->
+  <!-- LEAD FORM -->
+
+<section class="section">
+
+<div class="container">
+
+<div class="section-title">
+
+<span>Get Started</span>
+
+<h2>
+
+Need Help Choosing Investments?
+
+</h2>
+
+<p>
+
+Get personalized guidance from Praveen D. Kadrolli and start your wealth creation journey.
+
+</p>
+
+</div>
+
+<div class="contact-card">
+
+<form>
+
+<div class="contact-grid">
+
+<div class="form-group">
+
+<label>
+
+Full Name
+
+</label>
+
+<input type="text"
+class="form-control"
+placeholder="Enter your name">
+
+</div>
+
+<div class="form-group">
+
+<label>
+
+Mobile Number
+
+</label>
+
+<input type="tel"
+class="form-control"
+placeholder="Enter mobile number">
+
+</div>
+
+<div class="form-group">
+
+<label>
+
+Email Address
+
+</label>
+
+<input type="email"
+class="form-control"
+placeholder="Enter email">
+
+</div>
+
+<div class="form-group">
+
+<label>
+
+Monthly Investment Goal
+
+</label>
+
+<input type="text"
+class="form-control"
+placeholder="₹25,000">
+
+</div>
+
+</div>
+
+<div class="form-group">
+
+<label>
+
+Financial Goal
+
+</label>
+
+<textarea class="form-control"
+placeholder="Retirement, Child Education, Wealth Creation etc."></textarea>
+
+</div>
+
+<button type="submit"
+class="btn btn-gold">
+
+Request Consultation
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FAQ -->
 
 <section class="section process-section">
 
@@ -195,62 +529,77 @@ Future Value: ₹0
 
 <div class="section-title">
 
-<span>Lumpsum Calculator</span>
+<span>FAQ</span>
 
 <h2>
 
-Estimate Investment Growth
+Frequently Asked Questions
 
 </h2>
 
 </div>
 
-<div class="contact-card">
+<div class="faq-item">
 
-<div class="form-group">
+<h4>
 
-<label>Investment Amount (₹)</label>
+What is SIP?
 
-<input type="number"
-id="lumpsumAmount"
-class="form-control">
+</h4>
 
-</div>
+<p>
 
-<div class="form-group">
+A Systematic Investment Plan (SIP) allows you to invest a fixed amount regularly into mutual funds and benefit from rupee cost averaging and compounding.
 
-<label>Expected Return (%)</label>
-
-<input type="number"
-id="lumpsumReturn"
-class="form-control">
+</p>
 
 </div>
 
-<div class="form-group">
+<div class="faq-item">
 
-<label>Investment Period (Years)</label>
+<h4>
 
-<input type="number"
-id="lumpsumYears"
-class="form-control">
+What return rate should I use?
+
+</h4>
+
+<p>
+
+For long-term equity mutual funds, many investors use 10%–15% assumptions for planning purposes. Actual returns may vary.
+
+</p>
 
 </div>
 
-<button class="btn btn-primary"
-onclick="calculateLumpsumResult()">
+<div class="faq-item">
 
-Calculate Lumpsum
+<h4>
 
-</button>
+Are SIP returns guaranteed?
 
-<br><br>
+</h4>
 
-<h3 id="lumpsumResult">
+<p>
 
-Future Value: ₹0
+No. Mutual Fund investments are subject to market risks and returns are not guaranteed.
 
-</h3>
+</p>
+
+</div>
+
+<div class="faq-item">
+
+<h4>
+
+Can I increase my SIP later?
+
+</h4>
+
+<p>
+
+Yes. You can increase your SIP amount anytime through a step-up SIP strategy.
+
+</p>
 
 </div>
 
@@ -258,129 +607,7 @@ Future Value: ₹0
 
 </section>
 
-  <!-- RETIREMENT CALCULATOR -->
-
-<section class="section">
-
-<div class="container">
-
-<div class="section-title">
-
-<span>Retirement Calculator</span>
-
-<h2>
-
-Estimate Your Retirement Corpus
-
-</h2>
-
-</div>
-
-<div class="contact-card">
-
-<div class="form-group">
-
-<label>Monthly Expense Today (₹)</label>
-
-<input type="number"
-id="retExpense"
-class="form-control">
-
-</div>
-
-<div class="form-group">
-
-<label>Years Until Retirement</label>
-
-<input type="number"
-id="retYears"
-class="form-control">
-
-</div>
-
-<button class="btn btn-primary"
-onclick="calculateRetirement()">
-
-Calculate Retirement Corpus
-
-</button>
-
-<br><br>
-
-<h3 id="retirementResult">
-
-Required Corpus: ₹0
-
-</h3>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- GOAL CALCULATOR -->
-
-<section class="section process-section">
-
-<div class="container">
-
-<div class="section-title">
-
-<span>Goal Planner</span>
-
-<h2>
-
-Future Goal Planning Calculator
-
-</h2>
-
-</div>
-
-<div class="contact-card">
-
-<div class="form-group">
-
-<label>Future Goal Amount (₹)</label>
-
-<input type="number"
-id="goalAmount"
-class="form-control">
-
-</div>
-
-<div class="form-group">
-
-<label>Years Remaining</label>
-
-<input type="number"
-id="goalYears"
-class="form-control">
-
-</div>
-
-<button class="btn btn-primary"
-onclick="calculateGoal()">
-
-Calculate Monthly SIP
-
-</button>
-
-<br><br>
-
-<h3 id="goalResult">
-
-Required SIP: ₹0
-
-</h3>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- CTA -->
+<!-- WHATSAPP CTA -->
 
 <section class="section">
 
@@ -390,14 +617,13 @@ Required SIP: ₹0
 
 <h2>
 
-Need Personalized Planning?
+Need Help Planning Your Investments?
 
 </h2>
 
 <p>
 
-Online calculators provide estimates.
-Get a customized financial plan based on your goals.
+Talk directly with Praveen D. Kadrolli for SIP planning, retirement planning and mutual fund investment guidance.
 
 </p>
 
@@ -405,18 +631,18 @@ Get a customized financial plan based on your goals.
 
 <div class="hero-buttons">
 
-<a href="contact.html"
+<a href="https://wa.me/918147011325?text=Hello%20I%20would%20like%20help%20with%20investment%20planning"
+target="_blank"
 class="btn btn-gold">
 
-Book Consultation
+WhatsApp Now
 
 </a>
 
-<a href="https://wa.me/918147011325?text=Hello%20I%20need%20help%20with%20financial%20planning"
-target="_blank"
+<a href="contact.html"
 class="btn btn-outline">
 
-WhatsApp Now
+Book Consultation
 
 </a>
 
@@ -428,87 +654,31 @@ WhatsApp Now
 
 </section>
 
-<!-- CALCULATOR JAVASCRIPT -->
+<!-- MOBILE CTA -->
 
-<script>
+<div class="mobile-cta">
 
-function calculateSIPResult(){
+<a href="tel:+918147011325">
 
-const amount =
-parseFloat(document.getElementById('sipAmount').value);
+📞 Call
 
-const rate =
-parseFloat(document.getElementById('sipReturn').value);
+</a>
 
-const years =
-parseFloat(document.getElementById('sipYears').value);
+<a href="https://wa.me/918147011325"
+target="_blank">
 
-const result =
-calculateSIP(amount,rate,years);
+💬 WhatsApp
 
-document.getElementById('sipResult').innerHTML =
-"Future Value: ₹" +
-Number(result).toLocaleString('en-IN');
+</a>
 
-}
+<a href="https://connectplus.kotaksecurities.com/app/refer/BZ1FZG"
+target="_blank">
 
-function calculateLumpsumResult(){
+📈 Invest
 
-const amount =
-parseFloat(document.getElementById('lumpsumAmount').value);
+</a>
 
-const rate =
-parseFloat(document.getElementById('lumpsumReturn').value);
-
-const years =
-parseFloat(document.getElementById('lumpsumYears').value);
-
-const result =
-calculateLumpsum(amount,rate,years);
-
-document.getElementById('lumpsumResult').innerHTML =
-"Future Value: ₹" +
-Number(result).toLocaleString('en-IN');
-
-}
-
-function calculateRetirement(){
-
-const expense =
-parseFloat(document.getElementById('retExpense').value);
-
-const years =
-parseFloat(document.getElementById('retYears').value);
-
-const corpus =
-expense * 12 * 25 *
-Math.pow(1.06,years);
-
-document.getElementById('retirementResult').innerHTML =
-"Required Corpus: ₹" +
-Math.round(corpus).toLocaleString('en-IN');
-
-}
-
-function calculateGoal(){
-
-const goal =
-parseFloat(document.getElementById('goalAmount').value);
-
-const years =
-parseFloat(document.getElementById('goalYears').value);
-
-const sip =
-goal / (years * 12);
-
-document.getElementById('goalResult').innerHTML =
-"Required SIP: ₹" +
-Math.round(sip).toLocaleString('en-IN') +
-"/month";
-
-}
-
-</script>
+</div>
 
 <!-- FOOTER -->
 
@@ -528,8 +698,7 @@ Kadrolli Financial Services
 
 <p>
 
-Helping families build wealth through
-smart financial planning and disciplined investing.
+Helping families build wealth through smart financial planning and disciplined investing.
 
 </p>
 
@@ -558,29 +727,16 @@ Quick Links
 
 <h3>
 
-Resources
+Calculators
 
 </h3>
 
 <ul>
 
-<li>
-<a href="https://www.cvlkra.com/"
-target="_blank">
-
-Check KYC
-
-</a>
-</li>
-
-<li>
-<a href="https://connectplus.kotaksecurities.com/app/refer/BZ1FZG"
-target="_blank">
-
-Start Investing
-
-</a>
-</li>
+<li>SIP Calculator</li>
+<li>Lumpsum Calculator</li>
+<li>SWP Calculator</li>
+<li>PPF Calculator</li>
 
 </ul>
 
@@ -594,17 +750,11 @@ Contact
 
 </h3>
 
-<p>
+<p>📞 +91 81470 11325</p>
 
-+91 81470 11325
+<p>✉️ praveenkadrolli97@gmail.com</p>
 
-</p>
-
-<p>
-
-praveenkadrolli97@gmail.com
-
-</p>
+<p>📍 Bailhongal, Karnataka</p>
 
 </div>
 
@@ -618,8 +768,7 @@ praveenkadrolli97@gmail.com
 
 <strong>Disclaimer:</strong>
 
-Mutual Fund investments are subject to market risks.
-Read all scheme related documents carefully before investing.
+Mutual Fund investments are subject to market risks. Read all scheme related documents carefully before investing.
 
 </p>
 
@@ -629,9 +778,7 @@ Read all scheme related documents carefully before investing.
 
 <p>
 
-© 2026 Kadrolli Financial Services |
-ARN-290531 |
-All Rights Reserved.
+© 2026 Kadrolli Financial Services | ARN-290531 | All Rights Reserved.
 
 </p>
 
@@ -643,7 +790,7 @@ All Rights Reserved.
 
 <!-- WHATSAPP FLOAT -->
 
-<a href="https://wa.me/918147011325?text=Hello%20I%20would%20like%20to%20know%20more%20about%20your%20financial%20services."
+<a href="https://wa.me/918147011325?text=Hello%20I%20would%20like%20help%20with%20investment%20planning"
 class="whatsapp-float"
 target="_blank">
 
@@ -654,4 +801,5 @@ target="_blank">
 <script src="assets/script.js"></script>
 
 </body>
+
 </html>
