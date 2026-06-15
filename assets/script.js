@@ -426,8 +426,7 @@ const futureValue =
 amount *
 (
 (Math.pow(1 + monthlyRate, months) - 1) / monthlyRate
-) *
-(1 + monthlyRate);
+);
 
 return futureValue;
 
