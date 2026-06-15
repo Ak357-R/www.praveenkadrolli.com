@@ -359,11 +359,12 @@ id="lumpsum-calculator">
 min="1000"
 max="10000000"
 step="1000"
-value="100000">
+value="100000"
+id="lumpsumAmount">
 
 <div class="slider-value">
 
-₹1,00,000
+₹ <span id="lumpsumAmountText">1,00,000</span>
 
 </div>
 
@@ -376,11 +377,12 @@ value="100000">
 <input type="range"
 min="1"
 max="30"
-value="12">
+value="12"
+id="lumpsumRate">
 
 <div class="slider-value">
 
-12%
+<span id="lumpsumRateText">12</span>%
 
 </div>
 
@@ -393,11 +395,12 @@ value="12">
 <input type="range"
 min="1"
 max="40"
-value="10">
+value="10"
+id="lumpsumYears">
 
 <div class="slider-value">
 
-10 Years
+<span id="lumpsumYearsText">10</span> Years
 
 </div>
 
@@ -454,11 +457,12 @@ id="swp-calculator">
 <input type="range"
 min="100000"
 max="50000000"
-value="1000000">
+value="1000000"
+id="swpCorpus">
 
 <div class="slider-value">
 
-₹10,00,000
+₹ <span id="swpCorpusText">10,00,000</span>
 
 </div>
 
@@ -471,11 +475,12 @@ value="1000000">
 <input type="range"
 min="1000"
 max="100000"
-value="10000">
+value="10000"
+id="swpWithdrawal">
 
 <div class="slider-value">
 
-₹10,000
+₹ <span id="swpWithdrawalText">10,000</span>
 
 </div>
 
@@ -488,11 +493,30 @@ value="10000">
 <input type="range"
 min="1"
 max="20"
-value="8">
+value="8"
+id="swpRate">
 
 <div class="slider-value">
 
-8%
+<span id="swpRateText">8</span>%
+
+</div>
+
+</div>
+
+<div class="slider-group">
+
+<label>Withdrawal Period (Years)</label>
+
+<input type="range"
+min="1"
+max="40"
+value="10"
+id="swpYears">
+
+<div class="slider-value">
+
+<span id="swpYearsText">10</span> Years
 
 </div>
 
@@ -548,11 +572,12 @@ id="mf-calculator">
 <input type="range"
 min="1000"
 max="10000000"
-value="500000">
+value="500000"
+id="mfAmount">
 
 <div class="slider-value">
 
-₹5,00,000
+₹ <span id="mfAmountText">5,00,000</span>
 
 </div>
 
@@ -565,11 +590,12 @@ value="500000">
 <input type="range"
 min="1"
 max="30"
-value="12">
+value="12"
+id="mfRate">
 
 <div class="slider-value">
 
-12%
+<span id="mfRateText">12</span>%
 
 </div>
 
@@ -582,11 +608,12 @@ value="12">
 <input type="range"
 min="1"
 max="40"
-value="10">
+value="10"
+id="mfYears">
 
 <div class="slider-value">
 
-10 Years
+<span id="mfYearsText">10</span> Years
 
 </div>
 
@@ -643,11 +670,12 @@ id="ppf-calculator">
 <input type="range"
 min="500"
 max="150000"
-value="150000">
+value="150000"
+id="ppfAmount">
 
 <div class="slider-value">
 
-₹1,50,000
+₹ <span id="ppfAmountText">1,50,000</span>
 
 </div>
 
@@ -660,11 +688,13 @@ value="150000">
 <input type="range"
 min="6"
 max="10"
-value="7.1">
+step="0.1"
+value="7.1"
+id="ppfRate">
 
 <div class="slider-value">
 
-7.1%
+<span id="ppfRateText">7.1</span>%
 
 </div>
 
@@ -677,11 +707,12 @@ value="7.1">
 <input type="range"
 min="15"
 max="30"
-value="15">
+value="15"
+id="ppfYears">
 
 <div class="slider-value">
 
-15 Years
+<span id="ppfYearsText">15</span> Years
 
 </div>
 
@@ -737,11 +768,12 @@ id="epf-calculator">
 <input type="range"
 min="10000"
 max="500000"
-value="50000">
+value="50000"
+id="epfSalary">
 
 <div class="slider-value">
 
-₹50,000
+₹ <span id="epfSalaryText">50,000</span>
 
 </div>
 
@@ -754,13 +786,14 @@ value="50000">
 <input type="range"
 min="12"
 max="12"
-value="12">
+value="12"
+id="epfContribution">
 
 <div class="slider-value">
 
-12%
+<span id="epfContributionText">12</span>%
 
-div>
+</div>
 
 </div>
 
@@ -771,11 +804,12 @@ div>
 <input type="range"
 min="1"
 max="40"
-value="20">
+value="20"
+id="epfYears">
 
 <div class="slider-value">
 
-20 Years
+<span id="epfYearsText">20</span> Years
 
 </div>
 
@@ -831,11 +865,12 @@ id="ssy-calculator">
 <input type="range"
 min="250"
 max="150000"
-value="150000">
+value="150000"
+id="ssyAmount">
 
 <div class="slider-value">
 
-₹1,50,000
+₹ <span id="ssyAmountText">1,50,000</span>
 
 </div>
 
@@ -848,11 +883,13 @@ value="150000">
 <input type="range"
 min="7"
 max="10"
-value="8.2">
+step="0.1"
+value="8.2"
+id="ssyRate">
 
 <div class="slider-value">
 
-8.2%
+<span id="ssyRateText">8.2</span>%
 
 </div>
 
@@ -865,11 +902,12 @@ value="8.2">
 <input type="range"
 min="15"
 max="21"
-value="21">
+value="21"
+id="ssyYears">
 
 <div class="slider-value">
 
-21 Years
+<span id="ssyYearsText">21</span> Years
 
 </div>
 
@@ -925,11 +963,12 @@ id="fd-calculator">
 <input type="range"
 min="1000"
 max="10000000"
-value="500000">
+value="500000"
+id="fdAmount">
 
 <div class="slider-value">
 
-₹5,00,000
+₹ <span id="fdAmountText">5,00,000</span>
 
 </div>
 
@@ -942,11 +981,13 @@ value="500000">
 <input type="range"
 min="3"
 max="12"
-value="7">
+step="0.1"
+value="7"
+id="fdRate">
 
 <div class="slider-value">
 
-7%
+<span id="fdRateText">7</span>%
 
 </div>
 
@@ -959,11 +1000,12 @@ value="7">
 <input type="range"
 min="1"
 max="20"
-value="5">
+value="5"
+id="fdYears">
 
 <div class="slider-value">
 
-5 Years
+<span id="fdYearsText">5</span> Years
 
 </div>
 
