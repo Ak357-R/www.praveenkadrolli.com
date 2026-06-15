@@ -412,7 +412,7 @@ position: "bottom"
 
 function calculateSIP(amount, rate, years) {
 
-const monthlyRate = (rate / 100) / 12;
+const monthlyRate = Math.pow(1 + (rate / 100), 1 / 12) - 1;
 
 const months = years * 12;
 
@@ -426,7 +426,8 @@ const futureValue =
 amount *
 (
 (Math.pow(1 + monthlyRate, months) - 1) / monthlyRate
-);
+) *
+(1 + monthlyRate);
 
 return futureValue;
 
