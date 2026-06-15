@@ -2083,3 +2083,28 @@ grid-template-columns:1fr;
 }
 
 }
+
+/* ==========================================
+   CALCULATOR SELECTOR & SWITCHING
+========================================== */
+
+.calc-selector{
+cursor:pointer;
+transition:all .3s ease;
+}
+
+.calc-selector.active-calc{
+border:2px solid var(--primary);
+background:#f8f9ff;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.hidden-calculator{
+display:none;
+}
+
+.calculator-section canvas{
+max-width:350px;
+margin:auto;
+display:block;
+}
